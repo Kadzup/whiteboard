@@ -1,0 +1,19 @@
+{
+    "fileHeaderComment.parameter": {
+        "*": {
+            "author": "Dmytro Stefurak"
+        }
+    },
+    "fileHeaderComment.template": {
+        "*": [
+            "${commentbegin}",
+            "${commentprefix} Module: ${filename}",
+            "${commentprefix}",
+            "${commentprefix} Created on: ${date}",
+            "${commentprefix}",
+            "${commentprefix} Copyright (C) ${year} ${author}",
+            "${commentprefix} Author: ${author}",
+            "${commentend}"
+        ]
+    }
+}
