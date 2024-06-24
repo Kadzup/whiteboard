@@ -14,6 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:whiteboard/bloc/whiteboard/whiteboard_bloc.dart';
+
 import 'package:whiteboard/pages/whiteboard/widgets/whiteboard.dart';
 
 class WhiteboardPage extends StatelessWidget {

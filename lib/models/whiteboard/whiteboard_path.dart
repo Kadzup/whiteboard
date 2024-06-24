@@ -23,9 +23,7 @@ class WhiteboardPath {
     required this.points,
   });
 
-  void moveTo(double x, double y) {
-    path.moveTo(x, y);
-  }
+  void moveTo(double x, double y) => path.moveTo(x, y);
 
   void lineTo(double x, double y) {
     path.lineTo(x, y);

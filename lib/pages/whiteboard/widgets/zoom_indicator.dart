@@ -10,8 +10,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:whiteboard/bloc/whiteboard/whiteboard_bloc.dart';
 
 class ZoomIndicator extends StatefulWidget {
@@ -24,6 +26,7 @@ class ZoomIndicator extends StatefulWidget {
 class _ZoomIndicatorState extends State<ZoomIndicator> {
   double _zoomLevel = 1.0;
   bool _isVisible = false;
+
   Timer? _hideTimer;
 
   @override

@@ -30,7 +30,7 @@ class WhiteboardPainter extends CustomPainter {
       canvas.drawPath(path.path, path.paint);
 
       for (int i = 0; i < path.points.length - 1; i++) {
-        canvas.drawCircle(path.points[i], radius, path.paint);
+        canvas.drawCircle(path.points.elementAt(i), radius, path.paint);
       }
     }
   }
