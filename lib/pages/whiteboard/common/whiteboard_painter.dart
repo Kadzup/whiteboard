@@ -24,9 +24,11 @@ class WhiteboardPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (drawing.whiteboardPaths.isEmpty) return;
 
+    const radiusCorrection = 20;
+
     for (var path in drawing.whiteboardPaths) {
-      final radius = sqrt(path.paint.strokeWidth) / 20;
       final paint = path.paint;
+      final radius = sqrt(paint.strokeWidth) / radiusCorrection;
 
       canvas.drawPath(path.path, paint);
 
@@ -35,8 +37,9 @@ class WhiteboardPainter extends CustomPainter {
       }
 
       for (int i = 1; i < path.points.length; i++) {
-        final prevPoint = path.points[i - 1];
-        final curPoint = path.points[i];
+        final prevPoint = path.points.elementAt(i - 1);
+        final curPoint = path.points.elementAt(i);
+
         final distance = (curPoint - prevPoint).distance;
 
         if (distance > radius * 2) canvas.drawCircle(curPoint, radius, paint);
@@ -45,7 +48,5 @@ class WhiteboardPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant WhiteboardPainter oldDelegate) {
-    return true;
-  }
+  bool shouldRepaint(covariant WhiteboardPainter oldDelegate) => true;
 }

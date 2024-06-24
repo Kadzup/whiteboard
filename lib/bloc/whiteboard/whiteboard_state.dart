@@ -33,7 +33,7 @@ class WhiteboardSettings {
     required this.penWidth,
   })  : assert(maxZoom >= 0, "maxZoom can't be negative"),
         assert(minZoom >= 0, "minZoom can't be negative"),
-        assert(penWidth >= 0, "maxZoom can't be negative");
+        assert(penWidth >= 0, "penWidth can't be negative");
 
   const WhiteboardSettings.initial()
       : maxZoom = 2.5,
