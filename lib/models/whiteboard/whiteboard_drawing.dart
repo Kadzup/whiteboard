@@ -18,8 +18,6 @@ class WhiteboardDrawing {
     required this.whiteboardPaths,
   });
 
-  List<Object?> get props => [whiteboardPaths];
-
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;

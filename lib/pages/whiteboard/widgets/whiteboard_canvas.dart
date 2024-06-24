@@ -82,9 +82,11 @@ class _WhiteboardCanvasState extends State<WhiteboardCanvas> {
 
     if (_activePointerCount > 1) return;
 
-    if (state.mode.isPen) return _handleDrawing(details, bloc);
-
-    return _handleMoving(details, currentScale);
+    if (state.mode.isPen) {
+      _handleDrawing(details, bloc);
+    } else {
+      _handleMoving(details, currentScale);
+    }
   }
 
   void _onInteractionEnd(
@@ -96,15 +98,6 @@ class _WhiteboardCanvasState extends State<WhiteboardCanvas> {
     _activePointerCount = 0;
 
     if (state.mode.isView || prevPointerCount > 1) return;
-
-    const offset = Offset(10, 10);
-    final lastOffset = _tempPath.points.last;
-    final additionalOffset = Offset(
-      lastOffset.dx + offset.dx,
-      lastOffset.dy + offset.dy,
-    );
-
-    _tempPath.points.add(additionalOffset);
 
     bloc.add(UpdatePenDrawing(path: _tempPath));
   }

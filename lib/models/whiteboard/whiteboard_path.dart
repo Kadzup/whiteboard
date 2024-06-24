@@ -7,8 +7,6 @@
  * Author: Dmytro Stefurak
  */
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
@@ -30,23 +28,13 @@ class WhiteboardPath {
     path.moveTo(x, y);
   }
 
-  void quadric(double x, double y) {
-    final distance = sqrt(
-      pow(x - points.last.dx, 2) + pow(y - points.last.dy, 2),
-    );
+  void quadric(double x, double y) =>
+      path.quadraticBezierTo(points.last.dx, points.last.dy, x, y);
 
-    if (paint.strokeWidth <= 2) {
-      return path.quadraticBezierTo(points.last.dx, points.last.dy, x, y);
-    }
-
-    if (distance > 3) {
-      return path.quadraticBezierTo(points.last.dx, points.last.dy, x, y);
-    }
-
-    return path.moveTo(x, y);
+  void addDot(double x, double y) {
+    path.addOval(
+        Rect.fromCircle(center: Offset(x, y), radius: paint.strokeWidth / 2));
   }
-
-  List<Object?> get props => [paint];
 
   @override
   bool operator ==(Object other) {
